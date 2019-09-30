@@ -19,8 +19,11 @@ module.exports = {
 				root: ["./src"],
 				alias: {
 					utils: "./src/utils",
+					components: "./src/components",
+					configs: "./src/configs",
 				},
 			},
 		],
+		["babel-plugin-styled-components"],
 	],
 };
