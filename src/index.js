@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { add } from "utils/add";
 
 function App() {
-	return <div>Hello World {add(2, 3)}</div>;
+	return <div>Hello World {add(2, 1)}</div>;
 }
 
 const mountNode = document.getElementById("app");
