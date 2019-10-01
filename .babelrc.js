@@ -24,6 +24,7 @@ module.exports = {
 					smart_components: "./src/smart_components",
 					assets: "./src/assets",
 				},
+				cwd: "packagejson",
 			},
 		],
 		["babel-plugin-styled-components"],
