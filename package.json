@@ -19,15 +19,15 @@
 	"author": "Taran Bains <taranveer786@gmail.com>",
 	"license": "MIT",
 	"devDependencies": {
-		"eslint": "^6.5.0",
-		"eslint-config-prettier": "^6.3.0",
-		"eslint-plugin-jest": "^22.17.0",
-		"eslint-plugin-react": "^7.14.3",
-		"eslint-plugin-react-hooks": "^2.1.1",
-		"husky": "^3.0.7",
-		"jest": "^24.9.0",
-		"lint-staged": "^9.4.0",
-		"prettier": "^1.18.2"
+		"eslint": "6.5.0",
+		"eslint-config-prettier": "6.3.0",
+		"eslint-plugin-jest": "22.17.0",
+		"eslint-plugin-react": "7.14.3",
+		"eslint-plugin-react-hooks": "2.1.1",
+		"husky": "3.0.7",
+		"jest": "24.9.0",
+		"lint-staged": "9.4.0",
+		"prettier": "1.18.2"
 	},
 	"dependencies": {
 		"@babel/core": "^7.6.2",
