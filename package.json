@@ -12,7 +12,8 @@
 		"prettier": "prettier \"src/**/*.+(js|jsx|json|md)\"",
 		"format": "npm run prettier -- --write",
 		"validate": "npm run test && npm run lint && npm run format",
-		"precommit": "lint-staged"
+		"precommit": "lint-staged",
+		"start": "node server.js"
 	},
 	"repository": "git@github.com:tearingItUp786/fib.git",
 	"author": "Taran Bains <taranveer786@gmail.com>",
