@@ -13,7 +13,7 @@ const onEnter = cb => evt => {
 function InputContainer(props) {
 	const [val, setVal] = useState("");
 	const [error, setError] = useState(false);
-	const { onButtonPress } = props;
+	const { onButtonPress, hasError, errorInfo } = props;
 
 	const updateFun = () => {
 		if (val == "" || val === "0") {
@@ -23,12 +23,17 @@ function InputContainer(props) {
 	};
 	const inputEnterPress = onEnter(updateFun);
 
-	const errorPara = error ? (
-		<ErrorParagraph>
-			*Please limit yourself to valid characters (positive whole numbers
-			only)... 0 is not allowed
-		</ErrorParagraph>
-	) : null;
+	let errorPara = null;
+
+	if (error || hasError) {
+		console.log(error, hasError);
+		const messaging = hasError
+			? `Looks like something went wrong... ${errorInfo}`
+			: `*Please limit yourself to valid characters (positive whole numbers
+      only)... 0 is not allowed`;
+
+		errorPara = <ErrorParagraph>{messaging}</ErrorParagraph>;
+	}
 
 	return (
 		<>
@@ -61,6 +66,8 @@ function InputContainer(props) {
 
 InputContainer.propTypes = {
 	onButtonPress: PropTypes.func.isRequired,
+	hasError: PropTypes.bool,
+	errorInfo: PropTypes.any,
 };
 
 export default InputContainer;

@@ -22,6 +22,7 @@ module.exports = {
 					components: "./src/components",
 					configs: "./src/configs",
 					smart_components: "./src/smart_components",
+					assets: "./src/assets",
 				},
 			},
 		],

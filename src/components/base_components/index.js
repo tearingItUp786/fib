@@ -34,9 +34,29 @@ export const Label = styled.label`
 
 export const Input = styled.input`
 	font-size: 1rem;
-	width: 100%;
+	width: calc(100% - 2rem - 2px);
 	border: solid 1px ${props => props.theme.colors.textLighter};
 	padding: 1rem;
 	border-radius: 5px;
 	margin-top: 1rem;
+`;
+
+export const AppContainer = styled.div`
+	margin-bottom: 4rem;
+`;
+
+export const LogoContainer = styled.div`
+	width: 100%;
+	padding-top: 2rem;
+
+	${media.greaterThan("medium")`
+    padding: 2rem 0;
+  `};
+`;
+
+export const Logo = styled.img`
+	width: 200px;
+	height: 200px;
+	display: block;
+	margin: auto;
 `;

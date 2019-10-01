@@ -8,6 +8,8 @@ import media from "styled-media-query";
 const initialState = {
 	number: 0,
 	sequence: [],
+	hasError: false,
+	errorInfo: "",
 };
 
 // unlike redux the default case here should be to throw an error
@@ -17,10 +19,22 @@ const initialState = {
 function reducer(state, { type, number }) {
 	switch (type) {
 		case "update": {
-			console.log("update fired");
-			return { number, sequence: fibOutputArray(number) };
+			try {
+				const sequence = fibOutputArray(number);
+				return {
+					...state,
+					number,
+					sequence,
+					hasError: false,
+				};
+			} catch (error) {
+				return {
+					...state,
+					hasError: true,
+					errorInfo: error,
+				};
+			}
 		}
-
 		default: {
 			throw new Error(`Unsupported type: ${type}`);
 		}
@@ -46,7 +60,11 @@ function SmartComponents() {
 		dispatch({ type: "update", number: Number(number) });
 	return (
 		<SmartContainer>
-			<InputContainer onButtonPress={updateFibNumber} />
+			<InputContainer
+				onButtonPress={updateFibNumber}
+				hasError={state.hasError}
+				errorInfo={state.errorInfo}
+			/>
 			<ResultsContainer numberWanted={state.number} sequence={state.sequence} />
 		</SmartContainer>
 	);

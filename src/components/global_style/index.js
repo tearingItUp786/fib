@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
 
 html, body {
   font-family: ${props => props.theme.fontFamily.body.reduce(arrToFontString)};
+  font-size: 16px;
 }
 
 body {
