@@ -26,7 +26,12 @@ function InputContainer(props) {
 	const errorExists = error || hasError;
 	let resMess =
 		num > 0 && !errorExists ? (
-			<ErrorParagraph key={num}>{`Showing results for ${num}`}</ErrorParagraph>
+			<ErrorParagraph key={num}>
+				{`Showing results for ${num} `}
+				<span role="img" aria-label="rocket emoji">
+					🚀
+				</span>
+			</ErrorParagraph>
 		) : null;
 
 	let errorMess = null;
@@ -35,7 +40,14 @@ function InputContainer(props) {
 			? `Looks like something went wrong... ${errorInfo}`
 			: `*Please limit yourself to valid characters (positive whole numbers
       only)... 0 is not allowed`;
-		errorMess = <ErrorParagraph>{message}</ErrorParagraph>;
+		errorMess = (
+			<ErrorParagraph>
+				{message}
+				<span role="img" aria-label="sad emoji">
+					😢
+				</span>
+			</ErrorParagraph>
+		);
 	}
 
 	return (
