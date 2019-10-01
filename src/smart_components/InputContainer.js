@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Label, Input, Button } from "components/base_components";
 import { ErrorParagraph } from "../components/error_paragraph";
-import { noop } from "rxjs";
+import { noop } from "utils/helpers";
 
 const onEnter = cb => evt => {
 	if (evt.key === "Enter") {
