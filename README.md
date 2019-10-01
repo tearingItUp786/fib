@@ -15,7 +15,7 @@ I have included an `.nvmrc` file in this repository to ensure that node versions
 3. `yarn dev`
 4. Open `localhost:1234` and have fun playing!
 
-## Depedencies
+## Dependencies
 
 1. React
 2. React Dom
