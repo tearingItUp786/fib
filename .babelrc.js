@@ -21,6 +21,7 @@ module.exports = {
 					utils: "./src/utils",
 					components: "./src/components",
 					configs: "./src/configs",
+					smart_components: "./src/smart_components",
 				},
 			},
 		],

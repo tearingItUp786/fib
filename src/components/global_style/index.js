@@ -7,4 +7,8 @@ export const GlobalStyle = createGlobalStyle`
 html, body {
   font-family: ${props => props.theme.fontFamily.body.reduce(arrToFontString)};
 }
+
+body {
+  line-height: 1.5;
+}
 `;

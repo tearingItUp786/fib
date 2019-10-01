@@ -16,7 +16,9 @@ function fib(
 	// handle the case that the user doesn't provide us with a number
 	// for either aNum, sum, and prev or if the cb is not a function
 	if (
-		[aNum, sum, prev].some(val => typeof val !== "number") ||
+		typeof aNum !== "number" ||
+		typeof sum !== "number" ||
+		typeof prev !== "number" ||
 		typeof cb !== "function"
 	) {
 		return 0;
@@ -52,7 +54,12 @@ function fibOutputArray(aNum) {
 	}
 	var outputArray = [];
 
-	fib({ aNum, cb: val => outputArray.push(val) });
+	fib({
+		aNum,
+		cb: val => {
+			outputArray = [...outputArray, val];
+		},
+	});
 	return outputArray;
 }
 
