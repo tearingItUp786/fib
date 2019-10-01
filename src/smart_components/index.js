@@ -62,6 +62,7 @@ function SmartComponents() {
 		<SmartContainer>
 			<InputContainer
 				onButtonPress={updateFibNumber}
+				num={state.number}
 				hasError={state.hasError}
 				errorInfo={state.errorInfo}
 			/>

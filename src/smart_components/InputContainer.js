@@ -13,7 +13,7 @@ const onEnter = cb => evt => {
 function InputContainer(props) {
 	const [val, setVal] = useState("");
 	const [error, setError] = useState(false);
-	const { onButtonPress, hasError, errorInfo } = props;
+	const { onButtonPress, hasError, errorInfo, num } = props;
 
 	const updateFun = () => {
 		if (val == "" || val === "0") {
@@ -22,25 +22,30 @@ function InputContainer(props) {
 		onButtonPress(val);
 	};
 	const inputEnterPress = onEnter(updateFun);
+	const errorExists = error || hasError;
+	let resMess =
+		num > 0 && !errorExists ? (
+			<ErrorParagraph key={num}>{`Showing results for ${num}`}</ErrorParagraph>
+		) : null;
 
-	let errorPara = null;
-
-	if (error || hasError) {
-		console.log(error, hasError);
-		const messaging = hasError
+	let errorMess = null;
+	if (errorExists) {
+		const message = hasError
 			? `Looks like something went wrong... ${errorInfo}`
 			: `*Please limit yourself to valid characters (positive whole numbers
       only)... 0 is not allowed`;
-
-		errorPara = <ErrorParagraph>{messaging}</ErrorParagraph>;
+		errorMess = <ErrorParagraph>{message}</ErrorParagraph>;
 	}
 
 	return (
 		<>
-			{errorPara}
-			<Label htmlFor="n">What number do you want from the fib sequence?</Label>
+			{resMess}
+			{errorMess}
+			<Label htmlFor="n">
+				What sequence of numbers do you want to see from the fibonnaci sequence?
+			</Label>
 			<Input
-				type="text"
+				type="search"
 				pattern="[0-9]*"
 				name="n"
 				placeholder="1"
@@ -66,6 +71,7 @@ function InputContainer(props) {
 
 InputContainer.propTypes = {
 	onButtonPress: PropTypes.func.isRequired,
+	num: PropTypes.number,
 	hasError: PropTypes.bool,
 	errorInfo: PropTypes.any,
 };
