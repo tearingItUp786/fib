@@ -10,10 +10,6 @@ const onEnter = cb => evt => {
 	}
 };
 
-function isValidVal(aVal) {
-	return aVal != "" || aVal !== "0";
-}
-
 function InputContainer(props) {
 	const [val, setVal] = useState("");
 	const [error, setError] = useState(false);
@@ -21,7 +17,7 @@ function InputContainer(props) {
 
 	// only update if we have valid vaue
 	const updateFun = () => {
-		if (!isValidVal(val)) {
+		if (val == "" || val === "0") {
 			return;
 		}
 		onButtonPress(val);
@@ -58,7 +54,7 @@ function InputContainer(props) {
 				onChange={evt => {
 					const { value, validity } = evt.target;
 					// early return if the value is invalid
-					if (!validity.valid || !isValidVal(val)) {
+					if (!validity.valid || (value === "0" && val == "")) {
 						setError(true);
 						return;
 					}
