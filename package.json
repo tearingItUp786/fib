@@ -12,7 +12,6 @@
 		"prettier": "prettier \"src/**/*.+(js|jsx|json|md)\"",
 		"format": "npm run prettier -- --write",
 		"validate": "npm run test && npm run lint && npm run format",
-		"precommit": "lint-staged",
 		"start": "node server.js"
 	},
 	"repository": "git@github.com:tearingItUp786/fib.git",
@@ -43,5 +42,10 @@
 		"styled-components": ">= 1",
 		"styled-media-query": "^2.1.2",
 		"styled-normalize": "^8.0.6"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
 	}
 }
