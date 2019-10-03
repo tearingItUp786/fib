@@ -3,13 +3,13 @@ import { fibOutputArray } from "../utils/fib";
 
 describe("Fibonacci calculation", () => {
 	it("should return 0 if called without arguments", () => {
-		expect(fib()).toBe(0);
+		expect(fib() == 0).toBeTruthy();
 	});
 
 	it("should return 34 as the 10th number in the sequence", () => {
 		const res = fib({ aNum: 10 });
 		const exp = 34;
-		expect(res).toEqual(exp);
+		expect(res == exp).toBeTruthy();
 	});
 
 	it("should return 0 if aNum arg is non number", () => {
@@ -52,7 +52,7 @@ describe("Fibonacci sequence", () => {
 
 	it("should return the first 10 numbers in the sequence", () => {
 		const res = fibOutputArray(10);
-		const exp = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34];
+		const exp = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34].map(val => BigInt(val));
 		expect(res).toEqual(expect.arrayContaining(exp));
 	});
 });

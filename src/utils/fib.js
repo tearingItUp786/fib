@@ -6,10 +6,10 @@ import { noop } from "utils/helpers";
  * @returns {number} the number at the aNum spot in the fibonacci sequence
  */
 function fib(
-	{ aNum, sum = 0, prev = 1, cb = noop } = {
+	{ aNum, sum = BigInt(0), prev = BigInt(1), cb = noop } = {
 		aNum: 0,
-		sum: 0,
-		prev: 1,
+		sum: BigInt(0),
+		prev: BigInt(1),
 		cb: noop,
 	},
 ) {
@@ -17,8 +17,8 @@ function fib(
 	// for either aNum, sum, and prev or if the cb is not a function
 	if (
 		typeof aNum !== "number" ||
-		typeof sum !== "number" ||
-		typeof prev !== "number" ||
+		typeof sum !== "bigint" ||
+		typeof prev !== "bigint" ||
 		typeof cb !== "function"
 	) {
 		return 0;
@@ -35,7 +35,12 @@ function fib(
 
 	// JavaScript doesn't support recursion too well unless you're doing a tail recursive call
 	// we essentially need to return a primitive value so we don't fill up the call stack.
-	return fib({ aNum: aNum - 1, sum: prev + sum, prev: sum, cb });
+	return fib({
+		aNum: aNum - 1,
+		sum: BigInt(prev + sum),
+		prev: BigInt(sum),
+		cb,
+	});
 }
 
 /**

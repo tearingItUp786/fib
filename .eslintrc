@@ -1,4 +1,7 @@
 {
+	"globals": {
+		"BigInt": true
+	},
 	"parserOptions": {
 		"ecmaVersion": 2019,
 		"sourceType": "module"
